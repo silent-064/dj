@@ -1,18 +1,51 @@
-#include <iostream>
+/*
+ * Author : Protic Prappo Durjoy
+ * Date :26/5/25
+ * idea from tutorial 
+ */
+#include <bits/stdc++.h>
+#define endl "\n"
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define ft float
+#define du double
+#define ull unsigned long long
 using namespace std;
-
-int main() {
-    int number;
-    cout << "Enter an integer: ";
-    cin >> number;
-
-    if (number > 0) {
-        cout << "You entered a positive integer: " << number << endl;
-    } else if (number < 0) {
-        cout << "You entered a negative integer: " << number << endl;
-    } else {
-        cout << "You entered zero." << endl;
+void
+solve()
+{
+    int b, i;
+    cin >> b;
+    vector<int> x(b);
+    for (i = 0; i < b; i++)
+    {
+        cin >> x[i];
     }
-
-    return 0;
+    if (accumulate(x.begin(), x.end(), 0) == b)
+    {
+        yes;
+        return;
+    }
+    for (i = 0; i < b - 1; i++)
+    {
+        if (!x[i] && !x[i + 1])
+        {
+            yes;
+            return;
+        }
+    }
+    no;
+}
+int
+main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int a, i;
+    cin >> a;
+    while (a--)
+    {
+        solve();
+    }
 }
