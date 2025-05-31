@@ -17,15 +17,22 @@ main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    int    a, i;
-    string s1, s2;
-    cin >> s1 >> s2;
-    int x = s1.length() - 1;
-    int y = s2.length() - 1;
-    while (x >= 0 && y >= 0 && s1[x] == s2[y])
+    int a, i;
+    cin >> a;
+    int         b;
+    vector<int> x;
+    for (i = 0; i < a; i++)
     {
-        x--;
-        y--;
+        cin >> b;
+        if (b % 2 == 0)
+        {
+            b = b - 1;
+        }
+        x.push_back(b);
     }
-    cout << (x + 1) + (y + 1);
+
+    for (auto it : x)
+    {
+        cout << it << " ";
+    }
 }
